@@ -42,7 +42,8 @@ ln -s ~/Dropbox/.config/.atom ~/.atom
 
 sudo mkdir -p ~/Sites ~/Projects/
 sudo cp -R ~/seed/local ~/Sites/.
-git config --global gpg.program /usr/local/MacGPG2/bin/gpg2
-git config --global commit.gpgsign true
+
+# Make sure this gets into the .path to make gpg work
+# export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 
 #sudo apachectl restart
