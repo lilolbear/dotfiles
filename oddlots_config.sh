@@ -11,18 +11,18 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # link to my Dropbox .atom config
-ln -s ~/Dropbox/Sams\ Config/code/.atom ~/.atom
+ln -s ~/Dropbox/.config/.atom ~/.atom
 
 # Create the .odd local domain redirect
-sudo mkdir $(brew --prefix)/etc
-sudo echo 'address=/.odd/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf
+#sudo mkdir $(brew --prefix)/etc
+#sudo echo 'address=/.odd/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf
 
 # start dnsmasq and setup to restart automagically infinitum
-sudo cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons
-sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+#sudo cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons
+#sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 
-sudo mkdir /etc/resolver
-sudo echo "nameserver 127.0.0.1" > /etc/resolver/odd
+#sudo mkdir /etc/resolver
+#sudo echo "nameserver 127.0.0.1" > /etc/resolver/odd
 
 ###############################################################################
 # Lazy apache config
@@ -36,11 +36,13 @@ sudo echo "nameserver 127.0.0.1" > /etc/resolver/odd
 #   - DocumentRoot & Directory become /Users/smelton/Sites
 #   - AllowOverride becomes All
 # In httpd-vhosts.conf It adds a wildcard vhosts in for the .odd domain to resolve at ~/Sites/%1/www
-sudo mkdir /private/etc/apache2/oddlots
-sudo cp -R /private/etc/apache2/httpd.conf /private/etc/apache2/extra /private/etc/apache2/oddlots/
-sudo cp -R ~/seed/apache2/* /private/etc/apache2/
+#sudo mkdir /private/etc/apache2/oddlots
+#sudo cp -R /private/etc/apache2/httpd.conf /private/etc/apache2/extra /private/etc/apache2/oddlots/
+#sudo cp -R ~/seed/apache2/* /private/etc/apache2/
 
 sudo mkdir -p ~/Sites ~/Projects/
 sudo cp -R ~/seed/local ~/Sites/.
+git config --global gpg.program /usr/local/MacGPG2/bin/gpg2
+git config --global commit.gpgsign true
 
-sudo apachectl restart
+#sudo apachectl restart
