@@ -87,7 +87,7 @@
 [core]
 
 	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/smelton/.gitignore
 	attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -106,6 +106,9 @@
 	# Speed up commands involving untracked files such as `git status`.
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
+
+  # Make Atom my editor of choice
+	editor = atom
 
 [color]
 
@@ -136,6 +139,11 @@
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
 	gpgsign = true
+
+[gpg]
+
+  # https://gist.github.com/danieleggert/b029d44d4a54b328c0bac65d46ba4c65
+	program = /usr/local/MacGPG2/bin/gpg2
 
 [diff]
 

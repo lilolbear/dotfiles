@@ -15,3 +15,7 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# Files that I have included in my prep to do a new build but shouldn't go anywhere else
+.ssh
+.extra

@@ -25,11 +25,13 @@ brew cask install google-drive-file-stream
 brew cask install handbrake
 brew cask install iterm2
 brew cask install join-together
+brew cask install karabiner-elements
 brew cask install omnigraffle
-brew cask install sourcetree
 brew cask install sequel-pro
 brew cask install skype
 brew cask install slack
+brew cask install sourcetree
+brew cask install spectacle
 brew cask install transmission
 brew cask install transmit
 brew cask install versions

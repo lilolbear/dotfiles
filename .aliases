@@ -9,10 +9,10 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
+alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
+alias p="cd ~/Projects"
 alias g="git"
 
 # Detect which `ls` flavor is in use
@@ -154,8 +154,10 @@ alias path='echo -e ${PATH//:/\\n}'
 alias fasttm='sudo sysctl debug.lowpri_throttle_enabled=0'
 alias slowtm='sudo sysctl debug.lowpri_throttle_enabled=1'
 # Create a scafolding for a new web client
-alias client='new-web-client-struct'
+alias client='new-web-client-struct.sh'
 # Open todays notes (creating them if you need to)
-alias t='todays-notes'
+alias notes='todays-notes.sh'
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, yarn, and their installed packages
-alias update='clean-update'
+alias washup='clean-update.sh'
+# alias for the Mac ssh-add which has the -K for storing the keys in the keychain
+alias mac-ssh-add='/usr/bin/ssh-add -K'

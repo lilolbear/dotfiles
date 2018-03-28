@@ -96,12 +96,17 @@ brew install zopfli
 # Oddlots binaries
 brew install ant
 brew install dnsmasq
+brew install gpg-agent
 brew install mariadb
 #brew install mysql
 brew install nmap
+brew install php
+brew install homebrew/php/php-code-sniffer
+brew install homebrew/php/php-cs-fixer
 brew install rsync
 brew install homebrew/php/wp-cli
 brew install yarn
+
 
 # Remove outdated versions from the cellar.
 brew cleanup

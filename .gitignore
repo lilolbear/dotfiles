@@ -15,4 +15,4 @@ Thumbs.db
 
 # Files that I have included in my prep to do a new build but shouldn't go anywhere else
 .ssh
-.extras
+.extra
