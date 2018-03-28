@@ -24,6 +24,7 @@ brew cask install google-chrome
 brew cask install google-drive-file-stream
 brew cask install handbrake
 brew cask install iterm2
+brew cask install java
 brew cask install join-together
 brew cask install karabiner-elements
 brew cask install omnigraffle
@@ -36,6 +37,9 @@ brew cask install transmission
 brew cask install transmit
 brew cask install versions
 brew cask install vlc
+
+# Return to install stuff that depends on things that come in casks (java)
+brew install ant
 
 
 # Remove outdated versions from the cellar.
