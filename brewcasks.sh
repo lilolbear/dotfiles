@@ -15,7 +15,7 @@ brew tap caskroom/cask
 brew cask install adobe-creative-cloud
 brew cask install atom
 brew cask install balsamiq-mockups
-brew cask install bbedit
+#brew cask install bbedit
 brew cask install dropbox
 brew cask install firefox
 brew cask install flip4mac
@@ -41,6 +41,8 @@ brew cask install vlc
 # Return to install stuff that depends on things that come in casks (java)
 brew install ant
 
+# adobe-creative-cloud only gets the installer so we run it
+open -a /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
 
 # Remove outdated versions from the cellar.
 brew cleanup
