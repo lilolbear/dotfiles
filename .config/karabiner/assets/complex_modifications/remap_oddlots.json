@@ -1,0 +1,217 @@
+{
+  "title": "@lilolbear Hyper Capslock mappings",
+  "author": "lilolbear(sam@oddlots.com)",
+  "description": "Remap the capslock key to become a 'Hyperkey' (command+control+option+shift) when pressed with something else and an escape key when pressed alone. This can be mixed with any mods that follow the 'Hyperkey' model. I have included the uncommon ones that I use.",
+  "rules": [
+    {
+      "description": "Remap caps_lock to Hyperkey/escape (manditory)",
+      "manipulators": [
+        {
+          "description": "Obligatory remap of caps_lock to command+control+option+shift(right) / escape.",
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "modifiers": [
+                "right_command",
+                "right_control",
+                "right_option"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Hyper iTunes for a reliable next/prev/play_or_pause",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f7",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"iTunes\"' -e 'previous track' -e 'end tell'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f8",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"iTunes\"' -e 'playpause' -e 'end tell'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f9",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"iTunes\"' -e 'next track' -e 'end tell'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "rewind",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"iTunes\"' -e 'previous track' -e 'end tell'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "play_or_pause",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"iTunes\"' -e 'playpause' -e 'end tell'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "fastforward",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"iTunes\"' -e 'next track' -e 'end tell'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Hyper Personal Notes",
+      "manipulators": [
+        {
+          "description": "Create / Open todays notes.",
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "todays-notes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Hyper iTerm2 (mostly here as a template)",
+      "manipulators": [
+        {
+          "description": "Open up iterm2.",
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'iTerm'"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
