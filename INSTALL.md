@@ -37,12 +37,7 @@ export PATH="/usr/local/bin:$PATH"
 ```
 
 ## Install Applications
-1. Install Xcode
-```bash
-xcode-select --install
-```
-
-2. Homebrew
+1. Install Homebrew
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
@@ -63,9 +58,3 @@ xcode-select --install
   - [NoteBurner Audiobook Converter](http://www.noteburner.com/noteburner-itunes-drm-audio-converter.dmg)
   - [PopcornTime](https://popcorn-time.to/mac.html)
   - [VPN.ht](https://github.com/VPNht/desktop/releases/download/v0.0.3/VPN.ht-0.0.3.pkg)
-
-## Configure Environment
-1. Run my config file
-```bash
-./oddlots_config.sh
-```
