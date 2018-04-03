@@ -107,6 +107,10 @@ brew install rsync
 brew install homebrew/php/wp-cli
 brew install yarn
 
+# Updating Apache:
+sudo apachectl stop
+sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
+brew install httpd
 
 # Remove outdated versions from the cellar.
 brew cleanup

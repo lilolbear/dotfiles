@@ -57,12 +57,13 @@ xcode-select --install
 ./brewcasks.sh
 ```
 
-4. Install these other Applications for which there aren't casks:
+4. Install these other Applications for which there aren't casks (or failed):
   - [Flex SDK](http://flex.apache.org/installer.html)
   - [Microsoft Remote Desktop](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12)
   - [NoteBurner Audiobook Converter](http://www.noteburner.com/noteburner-itunes-drm-audio-converter.dmg)
   - [PopcornTime](https://popcorn-time.to/mac.html)
   - [VPN.ht](https://github.com/VPNht/desktop/releases/download/v0.0.3/VPN.ht-0.0.3.pkg)
+  - [iterm2](https://www.iterm2.com/downloads.html) brew cask failed
 
 ## Configure Environment
 1. Run my config file
