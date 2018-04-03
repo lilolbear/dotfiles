@@ -13,6 +13,14 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # link to my Dropbox .atom config
 ln -s ~/Dropbox/.config/.atom ~/.atom
 
+sudo mkdir -p ~/Sites ~/Projects/
+sudo cp -R ~/seed/local ~/Sites/.
+
+# Make sure this gets into the .path to make gpg work
+# export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
+
+
+
 # Create the .odd local domain redirect
 #sudo mkdir $(brew --prefix)/etc
 #sudo echo 'address=/.odd/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf
@@ -23,6 +31,7 @@ ln -s ~/Dropbox/.config/.atom ~/.atom
 
 #sudo mkdir /etc/resolver
 #sudo echo "nameserver 127.0.0.1" > /etc/resolver/odd
+
 
 ###############################################################################
 # Lazy apache config
@@ -39,11 +48,5 @@ ln -s ~/Dropbox/.config/.atom ~/.atom
 #sudo mkdir /private/etc/apache2/oddlots
 #sudo cp -R /private/etc/apache2/httpd.conf /private/etc/apache2/extra /private/etc/apache2/oddlots/
 #sudo cp -R ~/seed/apache2/* /private/etc/apache2/
-
-sudo mkdir -p ~/Sites ~/Projects/
-sudo cp -R ~/seed/local ~/Sites/.
-
-# Make sure this gets into the .path to make gpg work
-# export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 
 #sudo apachectl restart

@@ -23,7 +23,7 @@ brew cask install github
 brew cask install google-chrome
 brew cask install google-drive-file-stream
 brew cask install handbrake
-brew cask install iterm2
+#brew cask install iterm2
 brew cask install java
 brew cask install join-together
 brew cask install karabiner-elements

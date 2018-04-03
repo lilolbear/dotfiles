@@ -161,3 +161,6 @@ alias notes='todays-notes.sh'
 alias washup='clean-update.sh'
 # alias for the Mac ssh-add which has the -K for storing the keys in the keychain
 alias mac-ssh-add='/usr/bin/ssh-add -K'
+# turn off/on the Gatekeeper
+alias allowapps='sudo spctl --master-disable'
+alias secureapps='sudo spctl --master-enable'
