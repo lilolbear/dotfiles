@@ -1,6 +1,6 @@
 {
-  "title": "@lilolbear Hyper Capslock mappings",
-  "author": "lilolbear(sam@oddlots.com)",
+  "title": "@oddlots Hyper Capslock mappings",
+  "author": "sam(sam@oddlots.com)",
   "description": "Remap the capslock key to become a 'Hyperkey' (command+control+option+shift) when pressed with something else and an escape key when pressed alone. This can be mixed with any mods that follow the 'Hyperkey' model. I have included the uncommon ones that I use.",
   "rules": [
     {

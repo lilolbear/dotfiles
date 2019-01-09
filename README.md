@@ -1,111 +1,141 @@
-# Mathias’s dotfiles
+# Oddlots dotfiles
 
-![Screenshot of my shell prompt](https://i.imgur.com/EkEtphC.png)
+Based upon excellent [dotfiles repo](https://github.com/mathiasbynens/dotfiles) by mathiasbynens. I'd suggest that you start with his and work from there as his community support is excellent and my changes are largely opinionated and hacky and only marginally tested beyond my own development machines.
 
-## Installation
+**Warning:** If you're still interested in how I have things setup, or in my additions then proceed at your own risk!
 
-**Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
+These notes are culled from [here](https://github.com/mathiasbynens/dotfiles/blob/master/README.md) to summarize just the steps I needed to perform.
 
-### Using Git and the bootstrap script
+## Preparation (ie _before_ you start)
+1. Insure that the dotfiles repository commited and up to date
+2. Export Keychains
+3. Tar up the .extra, .ssh/, Keychains, and any other files that your destroying
+4. Move the tarball to a USB or other secure location
 
-You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
+Ready to Rock n Roll
 
+## Reformat & Install MacOS
+1. Restart while holding down the option key to boot from a USB fob that has the latest MacOS and start the install
+2. Get the machine on the internet (wifi or wired)
+3. Update MacOS from Apple
 ```bash
-git clone https://github.com/mathiasbynens/dotfiles.git && cd dotfiles && source bootstrap.sh
+sudo softwareupdate -i -a
+reboot
+xcode-select --install
 ```
 
-To update, `cd` into your local `dotfiles` repository and then:
-
+4. Make additional default directories for my projects and local sites
 ```bash
-source bootstrap.sh
+mkdir -p ~/Projects ~/Sites
 ```
 
-Alternatively, to update while avoiding the confirmation prompt:
-
+5. Bootstrap the dotfiles
 ```bash
-set -- -f; source bootstrap.sh
+cd ~/Projects
+git clone https://github.com/oddlots/dotfiles.git
+ln -s ~/Projects/dotfiles ~/dotfiles && cd dotfiles && source bootstrap.sh
 ```
 
-### Git-free install
-
-To install these dotfiles without Git:
-
+6. Make sure `~/.path` adds `/usr/local/bin` to the `$PATH` by adding the following:
 ```bash
-cd; curl -#L https://github.com/mathiasbynens/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,.osx,LICENSE-MIT.txt}
+echo 'export PATH="/usr/local/bin:$PATH"' > ~/.path
 ```
 
-To update later on, just run that command again.
+7. Untar the .extra and .ssh into ~ and keychains into ~/Library/Keychains
 
-### Specify the `$PATH`
-
-If `~/.path` exists, it will be sourced along with the other files, before any feature testing (such as [detecting which version of `ls` is being used](https://github.com/mathiasbynens/dotfiles/blob/aff769fd75225d8f2e481185a71d5e05b76002dc/.aliases#L21-26)) takes place.
-
-Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
-
-```bash
-export PATH="/usr/local/bin:$PATH"
-```
-
-### Add custom commands without creating a new fork
-
-If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
-
-My `~/.extra` looks something like this:
-
-```bash
-# Git credentials
-# Not in the repository, to prevent people from accidentally committing under my name
-GIT_AUTHOR_NAME="Mathias Bynens"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="mathias@mailinator.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
-```
-
-You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/mathiasbynens/dotfiles/fork) instead, though.
-
-### Sensible macOS defaults
-
-When setting up a new Mac, you may want to set some sensible macOS defaults:
-
+8. Sensible macOS defaults:
 ```bash
 ./.macos
 ```
 
-### Install Homebrew formulae
+9. Reboot for reassurance
 
-When setting up a new Mac, you may want to install some common [Homebrew](https://brew.sh/) formulae (after installing Homebrew, of course):
+## Install Applications
+1. Homebrew
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
+2. Install Homebrew formulae
 ```bash
 ./brew.sh
 ```
 
-Some of the functionality of these dotfiles depends on formulae installed by `brew.sh`. If you don’t plan to run `brew.sh`, you should look carefully through the script and manually install any particularly important ones. A good example is Bash/Git completion: the dotfiles use a special version from Homebrew.
+3. Use Homebrew Casks to install most of my software
+```bash
+./brewcasks.sh
+```
 
-## Feedback
+4. Check these other Applications for which there aren't casks or they have failed in the past:
+  - [Flex SDK](http://flex.apache.org/installer.html)
+  - [Microsoft Remote Desktop](https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12)
+  - [iterm2](https://www.iterm2.com/downloads.html) _brew cask failed_
 
-Suggestions/improvements
-[welcome](https://github.com/mathiasbynens/dotfiles/issues)!
 
-## Author
+## Configure Environment
 
-| [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
-|---|
-| [Mathias Bynens](https://mathiasbynens.be/) |
+Per [this](https://tommcfarlin.com/syncing-atom-settings/) I keep some of my less sensitive configs on dropbox like .atom.
+
+1. Log into Dropbox and start the .config folder downloading
+
+2. Link to my Dropbox .atom config
+```bash
+ln -s ~/Dropbox/.config/.atom ~/.atom
+```
+3. Make the local site functional
+```bash
+cd ~/Projects
+git clone https://github.com/oddlots/LocalHomePage.git
+ln -s ~/Projects/LocalHomePage ~/Sites/local
+```
+4. Create a ~/.path file and add in stuff from the brew files. for example:
+```bash
+#homebrew (installed earlier)
+export PATH="/usr/local/sbin:$PATH"
+#homebrew gnubin (for updated core utils)
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+#homebrew libxml2
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+# PHP you use on the command line
+#export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+export PATH="$(brew --prefix)/opt/php/bin:$PATH"
+```
+
+## Configure Localhost webhost and .odd domain
+
+1. Create the .odd local domain redirect
+```bash
+sudo mkdir $(brew --prefix)/etc
+sudo echo 'address=/.odd/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf
+```
+
+2. start dnsmasq and setup to restart automagically infinitum
+```bash
+sudo cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons
+sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+sudo mkdir /etc/resolver
+sudo echo "nameserver 127.0.0.1" > /etc/resolver/odd
+```
+
+3. Edit the apache config files. Theres a bunch going on in these so I'm just going to say diff the files with the defaults to see what I changed.
+```bash
+cd /usr/local/etc/httpd
+mv httpd.conf httpd.conf.old
+mv extra/httpd-vhosts.conf extra/httpd-vhosts.conf.old
+cp ~/Dropbox/.config/apache/httpd.conf .
+cp ~/Dropbox/.config/apache/httpd-vhosts.conf extra/.
+```
+
+> For those of you following from home, this isn't going to help since you don't have these files. Contact me if you want them or start to piece together what you might need from [here](https://getgrav.org/blog/macos-mojave-apache-multiple-php-versions) and [here](https://mallinson.ca/posts/5/the-perfect-web-development-environment-for-your-new-mac).
+
+4. Restart apache
+```bash
+sudo apachectl restart
+```
+
+5. Test by opening your browser to localhost
 
 ## Thanks to…
 
-* @ptb and [his _macOS Setup_ repository](https://github.com/ptb/mac-setup)
-* [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
-* [Cătălin Mariș](https://github.com/alrra) and his [dotfiles repository](https://github.com/alrra/dotfiles)
-* [Gianni Chiappetta](https://butt.zone/) for sharing his [amazing collection of dotfiles](https://github.com/gf3/dotfiles)
-* [Jan Moesen](http://jan.moesen.nu/) and his [ancient `.bash_profile`](https://gist.github.com/1156154) + [shiny _tilde_ repository](https://github.com/janmoesen/tilde)
-* [Lauri ‘Lri’ Ranta](http://lri.me/) for sharing [loads of hidden preferences](http://osxnotes.net/defaults.html)
-* [Matijs Brinkhuis](https://matijs.brinkhu.is/) and his [dotfiles repository](https://github.com/matijs/dotfiles)
-* [Nicolas Gallagher](http://nicolasgallagher.com/) and his [dotfiles repository](https://github.com/necolas/dotfiles)
-* [Sindre Sorhus](https://sindresorhus.com/)
-* [Tom Ryder](https://sanctum.geek.nz/) and his [dotfiles repository](https://sanctum.geek.nz/cgit/dotfiles.git/about)
-* [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [macOS-Defaults project](https://github.com/kevinSuttle/macOS-Defaults), which aims to provide better documentation for [`~/.macos`](https://mths.be/macos)
-* [Haralan Dobrev](https://hkdobrev.com/)
-* Anyone who [contributed a patch](https://github.com/mathiasbynens/dotfiles/contributors) or [made a helpful suggestion](https://github.com/mathiasbynens/dotfiles/issues)
+@mathiasbynens and [his dotfiles repository](https://github.com/mathiasbynens/dotfiles) as well as his awesome [community](https://github.com/mathiasbynens/dotfiles#thanks-to)

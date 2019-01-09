@@ -99,7 +99,7 @@ brew install zopfli
 # Oddlots binaries
 brew install ant
 brew install dnsmasq
-brew install gpg-agent
+#brew install gpg-agent
 brew install mariadb
 #brew install mysql
 brew install nmap
