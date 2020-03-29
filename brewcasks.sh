@@ -11,39 +11,67 @@ brew upgrade
 # Tap the Casks
 brew tap caskroom/cask
 
+# Quick Look plugins
+brew cask install /
+    qlcolorcode /
+	qlstephen /
+	qlmarkdown /
+	quicklook-json /
+	qlprettypatch /
+	quicklook-csv /
+	betterzip /
+	webpquicklook /
+	suspicious-package
+
+
 # Install My Applications
-brew cask install adobe-creative-cloud
-brew cask install atom
-brew cask install balsamiq-mockups
-brew cask install dropbox
-brew cask install firefox
-brew cask install flip4mac
-brew cask install github
-brew cask install google-chrome
-brew cask install google-drive-file-stream
-brew cask install handbrake
-brew cask install iterm2
-brew cask install java
-brew cask install join-together
-brew cask install karabiner-elements
-brew cask install microsoft-remote-desktop-beta
-brew cask install omnigraffle
-brew cask install sequel-pro
-brew cask install skype
-brew cask install slack
-brew cask install sourcetree
-brew cask install spectacle
-brew cask install transmission
-brew cask install transmit
-brew cask install tunnelblick
-brew cask install versions
-brew cask install vlc
+brew cask install /
+	1password /
+	adobe-creative-cloud /
+	app-cleaner /
+	#atom /
+	autodesk-fusion360 /
+	#balsamiq-mockups /
+	cheatsheet /
+	docker  /
+	dropbox /
+	firefox /
+	flip4mac /
+	fontforge /
+	github /
+	google-chrome /
+	google-drive-file-stream /
+	google-hangouts /
+	handbrake /
+	iterm2 /
+	java /
+	join-together /
+	karabiner-elements /
+	launchpad-manager /
+	local /
+	#microsoft-remote-desktop-beta /
+	osxfuse /
+	#omnigraffle /
+	prusaslicer /
+	#sequel-pro /
+	skype /
+	slack /
+	#sourcetree /
+	spectacle /
+	transmission /
+	transmit /
+	ultimaker-cura /
+	unity-hub /
+	#tunnelblick /
+	#versions /
+	visual-studio-code /
+	vlc
 
 # Return to install stuff that depends on things that come in casks (java)
-brew install ant
+#brew install ant
 
 # adobe-creative-cloud only gets the installer so we run it
-open -a /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
+#open -a /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
 
 # Remove outdated versions from the cellar.
 brew cleanup

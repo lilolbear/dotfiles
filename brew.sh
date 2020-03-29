@@ -21,7 +21,7 @@ brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
+brew install gnu-sed
 # Install Bash 4.
 brew install bash
 brew install bash-completion2
@@ -32,19 +32,17 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
   chsh -s "${BREW_PREFIX}/bin/bash";
 fi;
 
-# Install `wget` with IRI support.
-brew install wget --with-iri
-
-# Install GnuPG to enable PGP-signing commits.
-brew install gnupg
+# Install `wget`
+brew install wget
 
 # Install more recent versions of some macOS tools.
-brew install vim --with-override-system-vi
-brew install grep
-brew install openssh
-brew install screen
-brew install php
-brew install gmp
+brew install /
+	vim /
+	grep /
+	openssh /
+	screen /
+	php /
+	gmp
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -52,68 +50,40 @@ brew install sfnt2woff
 brew install sfnt2woff-zopfli
 brew install woff2
 
-# Install some CTF tools; see https://github.com/ctfs/write-ups.
-#brew install aircrack-ng
-#brew install bfg
-#brew install binutils
-#brew install binwalk
-#brew install cifer
-#brew install dex2jar
-#brew install dns2tcp
-#brew install fcrackzip
-#brew install foremost
-#brew install hashpump
-#brew install hydra
-#brew install john
-#brew install knock
-#brew install netpbm
-#brew install nmap
-#brew install pngcheck
-#brew install socat
-#brew install sqlmap
-#brew install tcpflow
-#brew install tcpreplay
-#brew install tcptrace
-#brew install ucspi-tcp # `tcpserver` etc.
-#brew install xpdf
-#brew install xz
-
 # Install other useful binaries.
-brew install ack
-#brew install exiv2
-brew install git
-brew install git-lfs
-brew install imagemagick --with-webp
-brew install lua
-brew install lynx
-brew install p7zip
-brew install pigz
-brew install pv
-brew install rename
-brew install rlwrap
-brew install ssh-copy-id
-brew install tree
-brew install vbindiff
-brew install zopfli
+brew install /
+	ack /
+	git /
+	git-lfs /
+	imagemagick /
+	lua /
+	lynx /
+	p7zip /
+	pigz /
+	pv /
+	rename /
+	rlwrap /
+	ssh-copy-id /
+	tree /
+	vbindiff /
+	zopfli
 
 # Oddlots binaries
-brew install ant
-brew install dnsmasq
-#brew install gpg-agent
-brew install mariadb
-#brew install mysql
-brew install nmap
-brew install php
-brew install homebrew/php/php-code-sniffer
-brew install homebrew/php/php-cs-fixer
-brew install rsync
-brew install homebrew/php/wp-cli
-brew install yarn
-
-# Updating Apache:
-sudo apachectl stop
-sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
-brew install httpd
+brew install /
+	#dnsmasq /
+	#mariadb /
+	#mysql /
+	nmap /
+	#php-code-sniffer /
+	#php-cs-fixer /
+	rsync /
+	wp-cli
+	#yarn
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# If sharing brew with another user on the system
+# add a group called 'brew' and then do the following:
+#sudo chgrp -R brew $(brew --prefix)/*
+#sudo chmod -R g+w $(brew --prefix)/*
