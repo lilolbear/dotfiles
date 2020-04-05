@@ -18,21 +18,18 @@ echo "--------------------------"
 brew doctor
 brew missing
 
-echo "--------------------------"
-echo "Atom upgrade stuff"
-echo "--------------------------"
-apm upgrade -c false
-
+#echo "--------------------------"
 #echo "NPM update stuff"
+#echo "--------------------------"
 #npm update -g
-echo "--------------------------"
-echo "Yarn update stuff"
-echo "--------------------------"
-yarn global upgrade;
+#echo "--------------------------"
+#echo "Yarn update stuff"
+#echo "--------------------------"
+#yarn global upgrade;
 
-echo "--------------------------"
-echo "Ruby gems update stuff"
-echo "--------------------------"
-sudo gem update --system
-sudo gem update
-sudo gem cleanup
+#echo "--------------------------"
+#echo "Ruby gems update stuff"
+#echo "--------------------------"
+#sudo gem update --system
+#sudo gem update
+#sudo gem cleanup
