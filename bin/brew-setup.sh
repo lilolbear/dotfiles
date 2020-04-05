@@ -124,6 +124,7 @@ brew cask install skype
 brew cask install slack
 #brew cask install sourcetree
 brew cask install spectacle
+brew cask install steam
 brew cask install transmission
 brew cask install transmit
 brew cask install ultimaker-cura
