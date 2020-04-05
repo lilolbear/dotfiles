@@ -25,6 +25,10 @@ brew install gnu-sed
 # Install Bash
 brew install bash
 brew install bash-completion2
+# Add the new shell to the list of allowed shells
+sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+# Change to the new shell
+chsh -s /usr/local/bin/bash
 
 # Switch to using brew-installed bash as default shell
 if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
@@ -75,22 +79,20 @@ brew install zopfli
 
 
 # Install Applications via Homebrew Casks.
-brew tap caskroom/cask
+brew tap homebrew/cask-cask
 
 # Quick Look plugins
-brew cask install
 brew cask install qlcolorcode
 brew cask install qlstephen
 brew cask install qlmarkdown
 brew cask install quicklook-json
 brew cask install qlprettypatch
 brew cask install quicklook-csv
-brew cask install betterzip
+#brew cask install betterzip
 brew cask install webpquicklook
 brew cask install suspicious-package
 
 # Install My Applications
-brew cask install
 brew cask install 1password
 brew cask install adobe-creative-cloud
 brew cask install app-cleaner
@@ -110,7 +112,6 @@ brew cask install google-hangouts
 brew cask install handbrake
 brew cask install iterm2
 brew cask install java
-brew cask install join-together
 brew cask install karabiner-elements
 brew cask install launchpad-manager
 brew cask install local
