@@ -74,3 +74,6 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, yarn, and their installed packages
 alias washup='clean-update.sh'
+
+# Fix Homebrew ownership directory
+alias fixbrew='chown -R $(whoami):admin /usr/local/*'
