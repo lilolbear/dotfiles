@@ -67,6 +67,7 @@ brew install p7zip
 #brew install php-cs-fixer
 brew install pigz
 brew install pv
+brew install rbenv
 brew install rename
 brew install rlwrap
 brew install rsync
@@ -100,6 +101,7 @@ brew cask install app-cleaner
 brew cask install autodesk-fusion360
 #brew cask install balsamiq-mockups
 brew cask install cheatsheet
+brew cask install discord
 brew cask install docker
 brew cask install dropbox
 brew cask install firefox
@@ -110,6 +112,7 @@ brew cask install google-chrome
 brew cask install google-drive-file-stream
 brew cask install google-hangouts
 brew cask install handbrake
+brew cask install imageoptim
 brew cask install iterm2
 brew cask install java
 brew cask install karabiner-elements
