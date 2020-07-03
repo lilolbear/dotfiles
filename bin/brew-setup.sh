@@ -38,6 +38,11 @@ fi;
 
 # Install `wget` and more recent versions of some macOS tools.
 brew install wget
+
+# Install GnuPG to enable PGP-signing commits.
+brew install gnupg
+
+# Install more recent versions of some macOS tools.
 brew install vim
 brew install grep
 brew install openssh
@@ -101,13 +106,14 @@ brew cask install app-cleaner
 brew cask install autodesk-fusion360
 #brew cask install balsamiq-mockups
 brew cask install cheatsheet
+brew cask install codekit
 brew cask install discord
-brew cask install docker
+#brew cask install docker
 brew cask install dropbox
 brew cask install firefox
 brew cask install flip4mac
 brew cask install fontforge
-brew cask install github
+#brew cask install github
 brew cask install google-chrome
 brew cask install google-drive-file-stream
 brew cask install google-hangouts
@@ -143,8 +149,3 @@ brew cleanup
 
 # adobe-creative-cloud only gets the installer so we run it
 #open -a /usr/local/Caskroom/adobe-creative-cloud/latest/Creative\ Cloud\ Installer.app
-
-# If sharing brew with another user on the system
-# add a group called 'brew', add your users and then do the following:
-#sudo chgrp -R brew $(brew --prefix)/*
-#sudo chmod -R g+w $(brew --prefix)/*

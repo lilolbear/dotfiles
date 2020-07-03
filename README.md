@@ -24,9 +24,9 @@ reboot
 xcode-select --install
 ```
 
-4. Make additional default directories for my projects and local sites
+4. Make additional default directories for my projects
 ```bash
-mkdir -p ~/Projects ~/Sites
+mkdir -p ~/Projects
 ```
 
 5. Bootstrap the dotfiles
@@ -36,16 +36,16 @@ git clone https://github.com/oddlots/dotfiles.git
 ln -s ~/Projects/dotfiles ~/dotfiles && cd dotfiles && source bootstrap.sh
 ```
 
-6. Make sure `~/.path` adds `/usr/local/bin` to the `$PATH` by adding the following:
+6. Make sure `~/config/.path` adds `/usr/local/bin` to the `$PATH` by adding the following:
 ```bash
-echo 'export PATH="/usr/local/bin:$PATH"' > ~/.path
+echo 'export PATH="/usr/local/bin:$PATH"' > ~/config/.path
 ```
 
 7. Untar the .extra and .ssh into ~ and keychains into ~/Library/Keychains
 
 8. Sensible macOS defaults:
 ```bash
-./.macos
+./bin/macos-setup.sh
 ```
 
 9. Reboot for reassurance
@@ -56,14 +56,14 @@ echo 'export PATH="/usr/local/bin:$PATH"' > ~/.path
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-2. Install Homebrew formulae
+2. Install Homebrew formulae and casks to install most of my software
 ```bash
-./brew.sh
+./bin/brew-setup.sh
 ```
 
-3. Use Homebrew Casks to install most of my software
+3. Install extensions for VS Code
 ```bash
-./brewcasks.sh
+./bin/vscode-setup.sh
 ```
 
 4. Check these other Applications for which there aren't casks or they have failed in the past:
@@ -74,68 +74,12 @@ echo 'export PATH="/usr/local/bin:$PATH"' > ~/.path
 
 ## Configure Environment
 
-Per [this](https://tommcfarlin.com/syncing-atom-settings/) I keep some of my less sensitive configs on dropbox like .atom.
-
-1. Log into Dropbox and start the .config folder downloading
-
-2. Link to my Dropbox .atom config
-```bash
-ln -s ~/Dropbox/.config/.atom ~/.atom
-```
-3. Make the local site functional
-```bash
-cd ~/Projects
-git clone https://github.com/oddlots/LocalHomePage.git
-ln -s ~/Projects/LocalHomePage ~/Sites/local
-```
-4. Create a ~/.path file and add in stuff from the brew files. for example:
-```bash
-#homebrew (installed earlier)
-export PATH="/usr/local/sbin:$PATH"
-#homebrew gnubin (for updated core utils)
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-#homebrew libxml2
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-# PHP you use on the command line
-#export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
-export PATH="$(brew --prefix)/opt/php/bin:$PATH"
-```
-
-## Configure Localhost webhost and .odd domain
-
-1. Create the .odd local domain redirect
-```bash
-sudo mkdir $(brew --prefix)/etc
-sudo echo 'address=/.odd/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf
-```
-
-2. start dnsmasq and setup to restart automagically infinitum
-```bash
-sudo cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons
-sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-sudo mkdir /etc/resolver
-sudo echo "nameserver 127.0.0.1" > /etc/resolver/odd
-```
-
-3. Edit the apache config files. Theres a bunch going on in these so I'm just going to say diff the files with the defaults to see what I changed.
-```bash
-cd /usr/local/etc/httpd
-mv httpd.conf httpd.conf.old
-mv extra/httpd-vhosts.conf extra/httpd-vhosts.conf.old
-cp ~/Dropbox/.config/apache/httpd.conf .
-cp ~/Dropbox/.config/apache/httpd-vhosts.conf extra/.
-```
-
-> For those of you following from home, this isn't going to help since you don't have these files. Contact me if you want them or start to piece together what you might need from [here](https://getgrav.org/blog/macos-mojave-apache-multiple-php-versions) and [here](https://mallinson.ca/posts/5/the-perfect-web-development-environment-for-your-new-mac).
-
-4. Restart apache
-```bash
-sudo apachectl restart
-```
-
-5. Test by opening your browser to localhost
+TODO
 
 ## Thanks to…
 
 @mathiasbynens and [his dotfiles repository](https://github.com/mathiasbynens/dotfiles) as well as his awesome [community](https://github.com/mathiasbynens/dotfiles#thanks-to)
+
+
+## just a useful reference
+https://sourabhbajaj.com/mac-setup/

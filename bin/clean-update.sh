@@ -21,7 +21,7 @@ brew missing
 #echo "--------------------------"
 #echo "NPM update stuff"
 #echo "--------------------------"
-#npm update -g
+npm update -g
 #echo "--------------------------"
 #echo "Yarn update stuff"
 #echo "--------------------------"
