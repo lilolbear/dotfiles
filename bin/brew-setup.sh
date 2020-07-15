@@ -128,11 +128,11 @@ brew cask install local
 brew cask install osxfuse
 #brew cask install omnigraffle
 brew cask install prusaslicer
+brew cask install rectangle
 brew cask install sequel-pro
 brew cask install skype
 brew cask install slack
 #brew cask install sourcetree
-brew cask install spectacle
 brew cask install steam
 brew cask install transmission
 brew cask install transmit
