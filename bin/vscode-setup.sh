@@ -1,31 +1,51 @@
 #!/usr/bin/env bash
 
 # Install VScode stuff
-
 code --install-extension alexdima.copy-relative-path
-code --install-extension EditorConfig.EditorConfig
-code --install-extension mikestead.dotenv
-code --install-extension vscode-icons-team.vscode-icons
-code --install-extension eamodio.gitlens
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension mhutchie.git-graph
-code --install-extension esbenp.prettier-vscode
-code --install-extension donjayamanne.githistory
-code --install-extension gencer.html-slim-scss-css-class-completion
-code --install-extension sibiraj-s.vscode-scss-formatter
+code --install-extension anthonydiametrix.ACF-Snippet
 code --install-extension bradlc.vscode-tailwindcss
+code --install-extension claudiosanches.woocommerce
+code --install-extension claudiosanches.wpcs-whitelist-flags
+code --install-extension cssho.vscode-svgviewer
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension deerawan.vscode-faker
+code --install-extension donjayamanne.githistory
+code --install-extension DotJoshJohnson.xml
+code --install-extension eamodio.gitlens
+code --install-extension EditorConfig.EditorConfig
+code --install-extension eg2.vscode-npm-script
+code --install-extension esbenp.prettier-vscode
+code --install-extension felixfbecker.php-debug
+code --install-extension felixfbecker.php-intellisense
+code --install-extension felixfbecker.php-pack
+code --install-extension formulahendry.auto-close-tag
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension gencer.html-slim-scss-css-class-completion
 code --install-extension GitLab.gitlab-workflow
 code --install-extension Gruntfuggly.todo-tree
-code --install-extension streetsidesoftware.code-spell-checker
-code --install-extension lacroixdavid1.vscode-format-context-menu
-code --install-extension nhoizey.gremlins
-code --install-extension tomoki1207.pdf
+code --install-extension heybourn.headwind
+code --install-extension humao.rest-client
+code --install-extension ikappas.phpcs
+code --install-extension jock.svg
 code --install-extension johnpapa.vscode-peacock
-code --install-extension shd101wyy.markdown-preview-enhanced
-code --install-extension davidanson.vscode-markdownlint
-
-# Wordpress
-code --install-extension yogensia.searchwpdocs
 code --install-extension jpagano.wordpress-vscode-extensionpack
-# code --install-extension wordpresstoolbox.wordpress-toolbox
+code --install-extension KnisterPeter.vscode-github
+code --install-extension lacroixdavid1.vscode-format-context-menu
+code --install-extension mhutchie.git-graph
+code --install-extension mikestead.dotenv
+code --install-extension mrmlnc.vscode-scss
+code --install-extension neilbrayfield.php-docblocker
+code --install-extension nhoizey.gremlins
 # code --install-extension peterjohnhunt.wordpress-suite
+code --install-extension shd101wyy.markdown-preview-enhanced
+code --install-extension sibiraj-s.vscode-scss-formatter
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension tomoki1207.pdf
+code --install-extension Tyriar.sort-lines
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension wordpresstoolbox.wordpress-toolbox
+code --install-extension yogensia.searchwpdocs
+code --install-extension yzhang.markdown-all-in-one
+code --install-extension Zignd.html-css-class-completion
